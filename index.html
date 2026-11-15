@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 18th Birthday Nitisha! 🎀 | A Surprise by Swayansh</title>
+  <meta name="description" content="A dreamy interactive 18th birthday website dedicated to Nitisha Mohanty, made with love by Swayansh Prusty." />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎀</text></svg>" />
+
+  <!-- Google Fonts: Dancing Script (400, 500, 600, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <!-- Ambient Dreamy Background Canvas Layers -->
+  <canvas id="petals-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Ambient Glow Blobs -->
+  <div class="bg-ambient-blob blob-1"></div>
+  <div class="bg-ambient-blob blob-2"></div>
+  <div class="bg-ambient-blob blob-3"></div>
+
+  <!-- Floating Birthday Music Button (Small Icon) -->
+  <audio id="birthday-audio-element" src="/birthday-music.mp3" loop preload="auto"></audio>
+  <button id="music-toggle-btn" class="birthday-music-icon-btn visible" data-tooltip="Play Music 🎀" title="Play Music 🎀" aria-label="Toggle Birthday Music">
+    <span class="music-icon-symbol paused">🎵</span>
+    <span class="music-icon-slash"></span>
+  </button>
+
+  <!-- ========================================================
+       SECTION 1: WELCOME SCREEN (HERO & 3D BIRTHDAY GIFT BOX)
+       ======================================================== -->
+  <header id="welcome-screen">
+    <div class="welcome-content">
+      <span id="welcome-badge" class="section-badge floating-anim">Special Delivery for You 💌</span>
+      <h1 id="welcome-heading" class="welcome-heading">Hey Nitisha! 🎀</h1>
+      <p id="welcome-subheading" class="welcome-subheading">Someone has prepared a little something special just for you...</p>
+
+      <!-- 3D Interactive Birthday Gift Box -->
+      <div id="hero-gift-box" class="gift-box-wrapper" title="Click to unwrap your birthday surprise!">
+        <div class="gift-box">
+          <div class="box-lid">
+            <div class="box-lid-ribbon"></div>
+            <div class="box-bow">
+              <div class="bow-loop-left"></div>
+              <div class="bow-loop-right"></div>
+              <div class="bow-center"></div>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="box-ribbon-vertical"></div>
+            <div class="box-ribbon-horizontal"></div>
+          </div>
+        </div>
+        <div class="gift-box-sparkles">✨</div>
+      </div>
+
+      <p id="welcome-instruction" class="welcome-instruction">Tap the magical gift box or button below to begin ✨</p>
+
+      <button id="welcome-open-btn" class="btn-pastel-primary">
+        <span id="welcome-open-btn-text">Open Your Surprise 💗</span>
+      </button>
+
+      <div class="welcome-footer-tag">
+        <span id="welcome-footer-text">Made with love by <strong>Swayansh Prusty</strong>.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       MAIN JOURNEY CONTENT (REVEALED ON SURPRISE OPEN)
+       ======================================================== -->
+  <main id="main-content-flow">
+
+    <!-- ========================================================
+         SECTION 2: PHOTO & VIDEO GALLERY (SCRAPBOOK STYLE)
+         ======================================================== -->
+    <section id="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Chapter 1 📸</span>
+          <h2 id="gallery-heading" class="section-title">Memories & Moments</h2>
+          <p id="gallery-subheading" class="section-subtitle">A little scrapbook of smiles, laughs, and unforgettable memories.</p>
+        </div>
+
+        <!-- Photo Category Tabs -->
+        <div id="gallery-tabs" class="gallery-tabs"></div>
+
+        <!-- Polaroid Scrapbook Grid -->
+        <div id="gallery-grid" class="gallery-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2B: DEDICATED BIRTHDAY VIDEO CLIPS 🎬
+         ======================================================== -->
+    <section id="videos-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Motion Memories 🎬</span>
+          <h2 id="videos-heading" class="section-title">Special Video Clips</h2>
+          <p id="videos-subheading" class="section-subtitle">Sweet captured memories, goofy candid videos, and motion memories.</p>
+        </div>
+
+        <!-- Dedicated Video Grid -->
+        <div id="videos-grid" class="videos-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3: 18 REASONS WHY YOU'RE SO SPECIAL 💗
+         ======================================================== -->
+    <section id="reasons-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">18th Milestone 🌸</span>
+          <h2 id="reasons-heading" class="section-title">18 Reasons Why You're So Special</h2>
+          <p id="reasons-subheading" class="section-subtitle">Click each card to reveal what makes Nitisha truly one of a kind!</p>
+        </div>
+
+        <div class="reasons-toolbar">
+          <div id="reasons-counter-badge" class="reasons-counter-badge">0 / 18 Discovered</div>
+          <button id="reasons-reveal-all-btn" class="btn-pastel-secondary">Reveal All Reasons ✨</button>
+        </div>
+
+        <!-- 18 3D Flip Cards Grid -->
+        <div id="reasons-grid" class="reasons-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 4: OPEN WHEN... 💌
+         ======================================================== -->
+    <section id="openwhen-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Emergency Comfort 💌</span>
+          <h2 id="openwhen-heading" class="section-title">Open When...</h2>
+          <p id="openwhen-subheading" class="section-subtitle">Click any envelope whenever you need a little reminder from me.</p>
+        </div>
+
+        <!-- 3D Origami Envelopes Grid -->
+        <div id="envelopes-grid" class="envelopes-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 5: SURPRISE LETTERS (HANDWRITTEN STYLE) 📜
+         ======================================================== -->
+    <section id="letters-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">From The Heart 🕊️</span>
+          <h2 id="letters-heading" class="section-title">Surprise Letters For You</h2>
+          <p id="letters-subheading" class="section-subtitle">Four handwritten notes straight from the heart. Click to unfold each letter.</p>
+        </div>
+
+        <!-- Handwritten Letters Grid -->
+        <div id="letters-grid" class="letters-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 6: INTERACTIVE BIRTHDAY CAKE & 18 CANDLES 🎂
+         ======================================================== -->
+    <section id="cake-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Candlelight Magic ✨</span>
+          <h2 id="cake-heading" class="section-title">Make a Wish, Nitisha!</h2>
+          <p id="cake-subheading" class="section-subtitle">Click the button below to blow out all 18 candles and make your wish! ✨</p>
+        </div>
+
+        <div class="cake-stage-container">
+          <!-- Toolbar: Only Blow Out All Candles Option -->
+          <div class="cake-toolbar">
+            <button id="cake-blow-all-btn" class="btn-pastel-primary cake-action-btn">
+              Blow Out All Candles 🎂💨
+            </button>
+          </div>
+
+          <!-- The Interactive Cake -->
+          <div class="cake-wrapper">
+            <!-- 18 Candles Container Arc -->
+            <div id="cake-candles-container" class="cake-candles-grid">
+              <!-- Dynamically populated with 18 candles -->
+            </div>
+
+            <!-- Top Tier -->
+            <div class="cake-tier cake-tier-top">
+              <div class="frosting-drips"></div>
+              <div class="cake-pearls-row">
+                <span class="pearl"></span><span class="pearl"></span><span class="pearl"></span>
+              </div>
+            </div>
+
+            <!-- Middle Tier -->
+            <div class="cake-tier cake-tier-mid">
+              <div class="frosting-drips"></div>
+              <div class="cake-pearls-row">
+                <span class="pearl"></span><span class="pearl"></span><span class="pearl"></span><span class="pearl"></span>
+              </div>
+            </div>
+
+            <!-- Bottom Tier -->
+            <div class="cake-tier cake-tier-bottom">
+              <div class="frosting-drips"></div>
+              <div class="cake-pearls-row">
+                <span class="pearl"></span><span class="pearl"></span><span class="pearl"></span><span class="pearl"></span><span class="pearl"></span>
+              </div>
+            </div>
+
+            <!-- Cake Plate -->
+            <div class="cake-plate"></div>
+          </div>
+
+          <!-- Celebratory Wish Banner -->
+          <div id="cake-wish-banner" class="cake-wish-banner">
+            <h3 class="wish-banner-title">✨ Wish Granted! ✨</h3>
+            <p id="cake-wish-banner-text" class="wish-banner-text">
+              Your 18th Birthday Wish is Sent to the Stars! 🌟 May Every Single Dream of Yours Come True, Nitisha! 💖
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 7: FINAL SURPRISE CELEBRATION 🎉
+         ======================================================== -->
+    <section id="finale-section">
+      <div class="container">
+        <div class="finale-card">
+          <span class="section-badge floating-anim">Happy 18th Birthday 👑</span>
+          <h2 id="finale-heading" class="finale-heading">HAPPY 18TH BIRTHDAY, NITISHA! 💗</h2>
+          <p id="finale-subheading" class="finale-subheading">May your 18th year be as sweet, radiant, and wonderful as you are!</p>
+
+          <div id="finale-message" class="finale-message-box">
+            <!-- Dynamically populated from config.js -->
+          </div>
+
+          <div id="finale-signature" class="finale-signature">
+            With love, Swayansh Prusty.
+          </div>
+
+          <div class="finale-actions" style="margin-top: 35px;">
+            <button id="finale-love-shower-btn" class="btn-pastel-primary">
+              Shower Nitisha with Chocolates 🍫
+            </button>
+            <button id="finale-fireworks-btn" class="btn-pastel-secondary">
+              Burst Birthday Crackers 🎆
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <p class="footer-credit">Made with love by Swayansh Prusty.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ========================================================
+       MODALS & OVERLAYS (PORTAL AT BODY ROOT)
+       ======================================================== -->
+  <!-- 1. Photo Lightbox Modal -->
+  <div id="gallery-lightbox" class="lightbox-modal">
+    <div class="lightbox-dialog">
+      <button id="lightbox-close-btn" class="lightbox-close" title="Close Lightbox">✕</button>
+      <div id="lightbox-media-container" class="lightbox-media-container"></div>
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+      <div class="lightbox-controls">
+        <button id="lightbox-prev-btn" class="lightbox-nav-btn" title="Previous Photo">❮</button>
+        <span id="lightbox-counter" class="lightbox-counter">1 / 6</span>
+        <button id="lightbox-next-btn" class="lightbox-nav-btn" title="Next Photo">❯</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Video Theater Modal Player -->
+  <div id="video-theater-modal" class="lightbox-modal">
+    <div class="lightbox-dialog video-theater-dialog">
+      <button id="video-close-btn" class="lightbox-close" title="Close Video">✕</button>
+      <div id="video-player-container" class="video-player-container"></div>
+      <div id="video-info-container" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- 3. Envelope Letter Reading Modal -->
+  <div id="envelope-modal" class="envelope-modal-overlay">
+    <div class="envelope-stationery">
+      <button id="envelope-modal-close-btn" class="stationery-close-btn" title="Close Letter">✕</button>
+      <div class="stationery-header">
+        <div id="envelope-modal-stamp" class="stationery-stamp">💌</div>
+        <div>
+          <h3 id="envelope-modal-title">Special Note</h3>
+          <span class="section-badge">Always by your side 🌸</span>
+        </div>
+      </div>
+      <div id="envelope-modal-body" class="stationery-body"></div>
+    </div>
+  </div>
+
+  <!-- 4. Realistic Paper Letter Unfold Modal -->
+  <div id="letter-paper-modal" class="letter-paper-modal">
+    <div class="letter-paper-sheet">
+      <button id="letter-paper-close-btn" class="paper-close-btn" title="Close Letter">✕</button>
+      <div id="letter-paper-seal" class="paper-stamp-badge">🌸</div>
+      <div class="paper-header">
+        <h3 id="letter-paper-title" class="paper-title">A Little Birthday Letter</h3>
+        <p id="letter-paper-subtitle" class="paper-subtitle">Celebrating Your 18th Milestone</p>
+        <span id="letter-paper-date" class="paper-date">Special 18th Edition</span>
+      </div>
+      <div id="letter-paper-content" class="paper-content"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       FLOATING NAVIGATION DOCK
+       ======================================================== -->
+  <nav id="floating-nav-dock" class="floating-nav-dock">
+    <a href="#welcome-screen" class="nav-dock-btn active" data-target="welcome-screen">
+      <span>🎁</span><span class="nav-btn-text">Welcome</span>
+    </a>
+    <a href="#gallery-section" class="nav-dock-btn" data-target="gallery-section">
+      <span>📸</span><span class="nav-btn-text">Scrapbook</span>
+    </a>
+    <a href="#videos-section" class="nav-dock-btn" data-target="videos-section">
+      <span>🎬</span><span class="nav-btn-text">Video Clips</span>
+    </a>
+    <a href="#reasons-section" class="nav-dock-btn" data-target="reasons-section">
+      <span>💖</span><span class="nav-btn-text">18 Reasons</span>
+    </a>
+    <a href="#openwhen-section" class="nav-dock-btn" data-target="openwhen-section">
+      <span>💌</span><span class="nav-btn-text">Open When</span>
+    </a>
+    <a href="#letters-section" class="nav-dock-btn" data-target="letters-section">
+      <span>📜</span><span class="nav-btn-text">Letters</span>
+    </a>
+    <a href="#cake-section" class="nav-dock-btn" data-target="cake-section">
+      <span>🎂</span><span class="nav-btn-text">The Cake</span>
+    </a>
+    <a href="#finale-section" class="nav-dock-btn" data-target="finale-section">
+      <span>🎉</span><span class="nav-btn-text">Finale</span>
+    </a>
+  </nav>
+
+  <!-- Interactive Toast Notification -->
+  <div id="birthday-toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/petals.js"></script>
+  <script src="js/cake.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/videos.js"></script>
+  <script src="js/reasons.js"></script>
+  <script src="js/envelopes.js"></script>
+  <script src="js/letters.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

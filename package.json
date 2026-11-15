@@ -1,0 +1,12 @@
+{
+  "name": "nitisha-18th-birthday",
+  "version": "1.0.0",
+  "description": "Magical 18th Birthday Celebration Website for Nitisha Mohanty",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": ["birthday", "celebration", "nitisha"],
+  "author": "Swayansh Prusty",
+  "license": "MIT"
+}
